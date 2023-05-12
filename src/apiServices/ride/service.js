@@ -18,7 +18,7 @@ const createRide = async (rideData) => {
 const finishRide = async (rideFinishData) => {
   try {
     const currentRide = await Ride.findByPk(rideFinishData.rideId);
-    if (currentRide.status !== "finished") {
+    if (currentRide.status === "finished") {
       throw new Error("Ride already finished");
     }
     currentRide.update({
